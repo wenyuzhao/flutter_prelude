@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
+import 'dart:io';
 
 class _Platform {
   void setEdgeToEdge(
@@ -39,10 +40,12 @@ class Prelude {
 
   static Future<void> initializeApp() async {
     WidgetsFlutterBinding.ensureInitialized();
-    try {
-      await FlutterDisplayMode.setHighRefreshRate();
-    } catch (e) {
-      debugPrint(e.toString());
+    if (Platform.isAndroid) {
+      try {
+        await FlutterDisplayMode.setHighRefreshRate();
+      } catch (e) {
+        debugPrint(e.toString());
+      }
     }
   }
 }
