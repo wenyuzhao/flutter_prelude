@@ -25,6 +25,7 @@ class _Platform {
     navigationBarColor = navigationBarColor.withOpacity(navigationBarOpacity);
     SystemChrome.setSystemUIOverlayStyle(defaultStyle.copyWith(
       systemStatusBarContrastEnforced: true,
+      systemNavigationBarContrastEnforced: true,
       statusBarColor: statusBarColor,
       systemNavigationBarColor: navigationBarColor,
       systemNavigationBarDividerColor: Colors.transparent,
